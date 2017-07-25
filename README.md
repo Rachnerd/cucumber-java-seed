@@ -100,7 +100,7 @@ Cucumber's xml file imports applicationContext.xml.
 #### Dependency injection example
 Inside the spring configuration (cucumber.xml) is a tag called component-scan. This tag tells Spring where to look for components (injectables).
 ```xml
-<context:component-scan base-package="nl.energiedirect"/>
+<context:component-scan base-package="com.energiedirect"/>
 ```
 
 Providing injectables to the framework is done by annotating classes with "Component". 

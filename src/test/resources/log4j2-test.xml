@@ -22,7 +22,7 @@
     </Appenders>
     <Loggers>
         <!--Send all logs coming from-->
-        <Logger name="nl.energiedirect.test.runner.listeners" level="ALL" additivity="false">
+        <Logger name="com.seed.test.runner.listeners" level="ALL" additivity="false">
             <AppenderRef ref="routing"/>
         </Logger>
         <Root level="debug" additivity="false">

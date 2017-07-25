@@ -1,18 +1,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Suite" parallel="tests" thread-count="2" verbose="1">
     <listeners>
-        <listener class-name="nl.energiedirect.test.runner.listeners.ErrorListener"/>
+        <listener class-name="com.seed.test.runner.listeners.ErrorListener"/>
     </listeners>
     <test name="Android5">
         <parameter name="nodeConfig" value="node_configs/appium-android5.json"/>
         <classes>
-            <class name="nl.energiedirect.test.RunCukesTest"/>
+            <class name="com.seed.test.RunCukesTest"/>
         </classes>
     </test>
     <!--<test name="Android6">-->
         <!--<parameter name="nodeConfig" value="node_configs/appium-android6.json"/>-->
         <!--<classes>-->
-            <!--<class name="nl.energiedirect.test.RunCukesTest"/>-->
+            <!--<class naRunCukesTestTest"/>-->
         <!--</classes>-->
     <!--</test>-->
 </suite>
