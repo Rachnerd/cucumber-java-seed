@@ -1,0 +1,6 @@
+.idea
+screenshots
+*.apk
+target
+*.iml
+logs

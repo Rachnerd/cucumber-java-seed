@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%highlight{[%-5p][%d{HH:mm:ss}][%X{threadId}][%c{1}:%L] %m%n}{FATAL=red blink, ERROR=red, WARN=yellow bold, INFO=black, DEBUG=green bold, TRACE=blue}"/>
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Console>
+        <Routing name="routing">
+            <Routes pattern="$${ctx:threadId}">
+                <Route>
+                    <RollingFile name="RollingFile-${ctx:threadId}" fileName="logs/${ctx:threadId}.log"
+                                 filePattern="logs/archive/${ctx:threadId}/%d{yyyy-MM-dd}/%d{HH:mm}.log">
+                        <PatternLayout pattern="[%-5p][%c{1}:%L] %m%n"/>
+                        <Policies>
+                            <OnStartupTriggeringPolicy/>
+                        </Policies>
+                    </RollingFile>
+                </Route>
+            </Routes>
+        </Routing>
+    </Appenders>
+    <Loggers>
+        <!--Send all logs coming from-->
+        <Logger name="nl.energiedirect.test.runner.listeners" level="ALL" additivity="false">
+            <AppenderRef ref="routing"/>
+        </Logger>
+        <Root level="debug" additivity="false">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="routing"/>
+        </Root>
+    </Loggers>
+</Configuration>
