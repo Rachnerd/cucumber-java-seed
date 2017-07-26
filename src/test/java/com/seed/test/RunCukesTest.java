@@ -1,16 +1,16 @@
 package com.seed.test;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.testng.AbstractTestNGCucumberTests;
-import io.appium.java_client.AppiumDriver;
 import com.seed.test.runner.node_config.NodeConfigLoader;
 import com.seed.test.runner.node_config.dtos.CapabilitiesDTO;
 import com.seed.test.runner.node_config.dtos.NodeConfigDTO;
 import com.seed.test.utils.driver.DriverFactory;
 import com.seed.test.utils.driver.LocalDriverManager;
+import cucumber.api.CucumberOptions;
+import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
+import org.openqa.selenium.WebDriver;
 import org.springframework.test.context.ContextConfiguration;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -35,7 +35,7 @@ public class RunCukesTest extends AbstractTestNGCucumberTests {
         String nodeConfigPath = getNodeConfigPath(nodeConfigFile);
         NodeConfigDTO config = NodeConfigLoader.load(nodeConfigPath);
 
-        AppiumDriver driver = DriverFactory.createInstance(config);
+        WebDriver driver = DriverFactory.createInstance(config);
         LocalDriverManager.setDriver(driver);
 
         CapabilitiesDTO current = config.getCapabilities()[0];

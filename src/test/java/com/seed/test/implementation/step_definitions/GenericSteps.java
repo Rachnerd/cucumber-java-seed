@@ -1,16 +1,15 @@
 package com.seed.test.implementation.step_definitions;
 
-import cucumber.api.java8.En;
-import com.seed.test.implementation.page_containers.HomePageContainer;
-import com.seed.test.utils.navigation.Navigation;
+import com.seed.test.implementation.page_containers.ExampleContainer;
 import com.seed.test.utils.page.PageContainer;
+import cucumber.api.java8.En;
+import com.seed.test.utils.navigation.Navigation;
 import com.seed.test.utils.page.PageIdentifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.testng.Assert;
-
 
 @Scope("cucumber-glue")
 public class GenericSteps implements En {
@@ -23,23 +22,23 @@ public class GenericSteps implements En {
     private final Logger log = LogManager.getLogger(getClass());
 
     public GenericSteps() {
-        Given("^I'm at the ([\\w-]+) screen$", (String pageName) -> {
+        Given("^I'm at the ([\\w-]+) page", (String pageName) -> {
             log.info("Given I'm at the " + pageName + " screen");
-            PageContainer page = pageIdentifier.get(pageName);
-            navigation.goToPage(page);
-            Assert.assertTrue(page.isDisplayed(), pageName + " page loaded successfully.");
+            PageContainer container = pageIdentifier.getContainer(pageName);
+            navigation.goToPage(container);
+            Assert.assertTrue(container.isDisplayed());
         });
 
-        When("^I click start wizard", () -> {
-            HomePageContainer page = (HomePageContainer) pageIdentifier.get("home");
-            page.goToWizard();
+        When("^I enter the follow query: ([\\w- ?]+)", (String query) -> {
+            ((ExampleContainer) pageIdentifier.getContainer("example")).search(query);
+            Assert.assertTrue(((ExampleContainer) pageIdentifier.getContainer(("example"))).hasResults());
         });
 
-        Then("^I see the ([\\w-]+) screen$", (String pageName) -> {
+        Then("^I see the ([\\w-]+) page", (String pageName) -> {
             log.info("Then I see the " + pageName + " screen");
-            PageContainer page = pageIdentifier.get(pageName);
-            Assert.assertTrue(page.isDisplayed(), "I see the " + pageName + " screen");
-            log.debug(page + " is displayed");
+            PageContainer container = pageIdentifier.getContainer(pageName);
+            Assert.assertTrue("I see the " + pageName + " screen", container.isDisplayed());
+            log.debug(container + " is displayed");
         });
     }
 

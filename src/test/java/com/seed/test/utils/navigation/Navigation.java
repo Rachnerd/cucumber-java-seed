@@ -22,7 +22,7 @@ public class Navigation {
     List<Navigator> navigatorList;
 
     public boolean goToPage(PageContainer page) {
-        log.debug("Start navigators to " + page);
+        log.debug("Start navigation to " + page);
 
         Optional<Navigator> navigator = navigatorList
                 .stream()

@@ -1,5 +1,6 @@
 package com.seed.test.utils.driver;
-import io.appium.java_client.AppiumDriver;
+
+import org.openqa.selenium.WebDriver;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 
 /**
@@ -9,13 +10,13 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
  * Storing each driver in a ThreadLocal variable makes sure every parallel test interacts with the its own driver.
  */
 public class LocalDriverManager extends AbstractTestNGSpringContextTests {
-    private static ThreadLocal<AppiumDriver> mobileDriver = new ThreadLocal<>();
+    private static ThreadLocal<WebDriver> mobileDriver = new ThreadLocal<>();
 
-    public static AppiumDriver getDriver() {
+    public static WebDriver getDriver() {
         return mobileDriver.get();
     }
 
-    public static void setDriver(AppiumDriver driver) {
+    public static void setDriver(WebDriver driver) {
         mobileDriver.set(driver);
     }
 }

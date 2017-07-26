@@ -3,16 +3,16 @@
     <listeners>
         <listener class-name="com.seed.test.runner.listeners.ErrorListener"/>
     </listeners>
-    <test name="Android5">
-        <parameter name="nodeConfig" value="node_configs/appium-android5.json"/>
+    <test name="Chrome">
+        <parameter name="nodeConfig" value="node_configs/chrome.json"/>
         <classes>
             <class name="com.seed.test.RunCukesTest"/>
         </classes>
     </test>
-    <!--<test name="Android6">-->
-        <!--<parameter name="nodeConfig" value="node_configs/appium-android6.json"/>-->
+    <!--<test name="FireFox">-->
+        <!--<parameter name="nodeConfig" value="node_configs/firefox.json"/>-->
         <!--<classes>-->
-            <!--<class naRunCukesTestTest"/>-->
+            <!--<class name="com.seed.test.RunCukesTest"/>-->
         <!--</classes>-->
     <!--</test>-->
 </suite>

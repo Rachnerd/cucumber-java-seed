@@ -26,7 +26,7 @@ public class PageIdentifier {
     /**
      * Retrieves page object based on the name given in the Gherkin features.
      */
-    public PageContainer get(String pageName) {
+    public PageContainer getContainer(String pageName) {
         Optional<PageIdentity> optionalPage = pages
                 .stream()
                 .filter(page ->
@@ -39,9 +39,9 @@ public class PageIdentifier {
             throw new RuntimeException("Page with name " + pageName + " does not exist");
         } else {
             PageIdentity page = optionalPage.get();
-            if(page instanceof PageContainer) {
+            if (page instanceof PageContainer) {
                 return (PageContainer) page;
-            }else {
+            } else {
                 throw new RuntimeException("Found page is not of type PageContainer");
             }
         }

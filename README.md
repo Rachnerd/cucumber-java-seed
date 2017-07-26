@@ -9,6 +9,9 @@ Download [here](http://selenium-release.storage.googleapis.com/index.html) (I us
 Run grid
 ```bash
 java -jar selenium-server-standalone-X.Y.Z.jar -role hub
+FF: java  -Dwebdriver.firefox.marionette=/home/rachnerd/Downloads/geckodriver -jar selenium-server-standalone-3.4.0.jar -port 5555 -role node -hub http://localhost:4444/grid/register
+Chrome: java -Dwebdriver.chrome.driver=/home/rachnerd/Downloads/chromedriver -jar selenium-server-standalone-3.4.0.jar -port 5556 -role node -hub http://localhost:4444/grid/register
+
 ```
 
 ### Run N amount of Appium instances.

@@ -48,12 +48,12 @@ public class ErrorListener extends TestListenerAdapter {
 
     private void takeScreenShot(String fileName) {
         File file = new File("screenshots/errors/" + fileName + ".png");
-        File tmpFile = LocalDriverManager.getDriver()
-                .getScreenshotAs(OutputType.FILE);
-        try {
-            FileUtils.copyFile(tmpFile, file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        File tmpFile = LocalDriverManager.getDriver()
+//                .getScreenshotAs(OutputType.FILE);
+//        try {
+//            FileUtils.copyFile(tmpFile, file);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 }

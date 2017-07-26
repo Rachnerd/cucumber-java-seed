@@ -1,8 +1,10 @@
 package com.seed.test.implementation.step_definitions;
 
 import cucumber.api.Scenario;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import com.seed.test.utils.driver.LocalDriverManager;
+import net.sf.cglib.core.Local;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Scope;
@@ -31,7 +33,7 @@ public class Hooks {
             canReset.set(true);
         } else {
             // We need to reset the app to fix the not found element exception.
-            LocalDriverManager.getDriver().resetApp();
+//            LocalDriverManager.getDriver().resetApp();
         }
     }
 }
