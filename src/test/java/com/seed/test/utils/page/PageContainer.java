@@ -9,6 +9,10 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Each container of a page extends this class and server as a wrapper around a page
+ * that interacts with the page. (See examples).
+ */
 @ContextConfiguration(locations = "classpath:cucumber.xml")
 public abstract class PageContainer extends AbstractTestNGSpringContextTests implements PageIdentity {
 

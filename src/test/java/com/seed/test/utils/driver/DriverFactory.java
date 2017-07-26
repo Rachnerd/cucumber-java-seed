@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Factory that instantiate a driver.
+ */
 public class DriverFactory {
 
     public static AppiumDriver createInstance(NodeConfigDTO config) throws MalformedURLException {

@@ -10,5 +10,4 @@ public class HomePage extends PageObject {
 
     @AndroidFindBy(accessibility = "wizardExampleButton")
     public MobileElement wizardButton;
-
 }

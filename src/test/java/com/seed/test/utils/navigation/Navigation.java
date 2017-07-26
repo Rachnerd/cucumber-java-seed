@@ -9,6 +9,11 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * This class automatically searches for all classes that implement the Navigator interface.
+ * It loops through all the interfaces and calls each goTo method. This class can be left
+ * untouched, you can add Navigators at the implementation level.
+ */
 @Component
 public class Navigation {
     private final Logger log = LogManager.getLogger(Navigation.class);

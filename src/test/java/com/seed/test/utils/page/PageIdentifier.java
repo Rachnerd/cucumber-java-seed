@@ -10,6 +10,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * This class can be called to match Gherkin page names to page containers.
+ * It automatically picks up every class that has a PageIdentity, which contains
+ * an array of names used in Gherkin features (see examples).
+ */
 @Component
 @ContextConfiguration("classpath*:cucumber.xml")
 public class PageIdentifier {
@@ -21,17 +26,17 @@ public class PageIdentifier {
     /**
      * Retrieves page object based on the name given in the Gherkin features.
      */
-    public PageContainer get(String screenName) {
+    public PageContainer get(String pageName) {
         Optional<PageIdentity> optionalPage = pages
                 .stream()
                 .filter(page ->
                         Arrays.stream(page.getIdentities())
-                                .anyMatch(identity -> identity.equals(screenName))
+                                .anyMatch(identity -> identity.equals(pageName))
                 )
                 .findFirst();
 
         if (!optionalPage.isPresent()) {
-            throw new RuntimeException("Page with name " + screenName + " does not exist");
+            throw new RuntimeException("Page with name " + pageName + " does not exist");
         } else {
             PageIdentity page = optionalPage.get();
             if(page instanceof PageContainer) {

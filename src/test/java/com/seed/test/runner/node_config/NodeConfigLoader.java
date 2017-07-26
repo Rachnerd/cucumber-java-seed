@@ -8,6 +8,9 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/**
+ * This class loads and parses all appium json configurations (resources/node_configs).
+ */
 public class NodeConfigLoader {
     public static NodeConfigDTO load(String filePath) throws NotFoundException {
         InputStream inputStream = NodeConfigLoader.class.getResourceAsStream(filePath);
