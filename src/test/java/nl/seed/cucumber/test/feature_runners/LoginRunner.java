@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.testng.annotations.Test;
 
 @ContextConfiguration(locations = {"classpath:cucumber.xml"})
-public class ExampleFeatureRunner {
+public class LoginRunner {
     private final Logger log = LogManager.getLogger(getClass());
 
     /**
@@ -16,9 +16,10 @@ public class ExampleFeatureRunner {
      */
     @CucumberOptions(
             plugin = "json:target/cucumber.json",
-            features = "src/test/resources/features/Example.feature",
+            features = "src/test/resources/features/Login.feature",
             glue = {
-                    "nl.seed.cucumber.test.step_definitions.shared"
+                    "nl.seed.cucumber.test.step_definitions.shared",
+                    "nl.seed.cucumber.test.step_definitions.login"
             }
     )
     private class BaseOptions {

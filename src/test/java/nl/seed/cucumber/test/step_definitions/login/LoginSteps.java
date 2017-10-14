@@ -1,4 +1,6 @@
 package nl.seed.cucumber.test.step_definitions.login;
 
-public class LoginSteps {
+import cucumber.api.java8.En;
+
+public class LoginSteps implements En{
 }
