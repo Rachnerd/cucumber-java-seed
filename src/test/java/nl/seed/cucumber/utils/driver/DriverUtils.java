@@ -41,33 +41,6 @@ public class DriverUtils {
         }
     }
 
-    public static boolean allInputsDisabled(List<WebElement> allInputs, List<WebElement> exceptions) {
-        boolean allDisabled = allInputs
-                .stream()
-                .filter(input -> exceptions
-                        .stream()
-                        .noneMatch(exception -> input == exception)
-                )
-                .noneMatch(WebElement::isEnabled);
-        boolean exceptionsEnabled = exceptions
-                .stream()
-                .allMatch(WebElement::isEnabled);
-        return allDisabled && exceptionsEnabled;
-    }
-
-    public static WebElement getInputByFormControlName(List<WebElement> inputs, String formControlName) {
-        Optional<WebElement> optionalInput = inputs
-                .stream()
-                .filter(element -> element.getAttribute("formcontrolname").equals(formControlName))
-                .findFirst();
-
-        if (optionalInput.isPresent()) {
-            return optionalInput.get();
-        } else {
-            throw new RuntimeException("Unrecognized form input: " + formControlName);
-        }
-    }
-
     /**
      * Headless can't deal with normal clicks.
      */
@@ -76,7 +49,6 @@ public class DriverUtils {
         jse.executeScript("arguments[0].scrollIntoView()", element);
         element.click();
     }
-
 
     public static void waitUntilVisible(WebElement element, Integer timeOutInSeconds) {
         WebDriver driver = LocalDriverManager.get();

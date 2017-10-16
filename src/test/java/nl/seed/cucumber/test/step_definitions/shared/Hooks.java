@@ -27,6 +27,9 @@ public class Hooks {
             return;
         }
         isRunning.set(true);
+        /*
+         * Do something only once
+         */
     }
 
     @Before
@@ -37,10 +40,16 @@ public class Hooks {
     }
 
     @After
-    public void takeScreenshotIfScenarioFailed() {
-        if (scenario.getStatus().equals("failed")) {
-            DriverUtils.takeScreenShot("errors/" + ThreadContext.get("threadId") + " " + Hooks.scenario.getName());
-            log.error("Screenshot created for failed scenario " + scenario.getName());
+    public void takeScreenshot(Scenario scenario) {
+        boolean hasFailed = scenario.getStatus().equals("failed");
+        String logMessage = "Screenshot created for failed scenario " + scenario.getName();
+        String fileName = ThreadContext.get("threadId") + " " + Hooks.scenario.getName();
+        if (hasFailed) {
+            DriverUtils.takeScreenShot("errors/" + fileName);
+            log.error(logMessage);
+        }else {
+            DriverUtils.takeScreenShot("successes/" + fileName);
+            log.info(logMessage);
         }
     }
 }
