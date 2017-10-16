@@ -33,13 +33,6 @@ Determines what browser will run the tests.
 -DbrowserName=ie (Not working yet)
 ```
 
-### UseTestData
-By default the test scenarios use some unique accounts without real ids like {id: "household"}. This flag translates all
-mock data to test data found in: [test-data.json](src/test/resources/test-data.json). This flag also activates the authentication flow.
-```bash
--DuseTestData=true
-```
-
 ### Groups
 Without specifying a group TestNG will run all features. Features are categorized in groups that consists of tests that
 have something in common. 
