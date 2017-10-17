@@ -51,11 +51,7 @@ public class DriverHooks {
     @BeforeTest(alwaysRun = true)
     @Parameters({"host"})
     public void setHost(@Optional String hostParameter) {
-        try {
-            DriverUtils.host = ParameterUtils.getParameter(hostParameter, "host");
-        }catch(Exception e) {
-            throw new RuntimeException("No host specified. Provide a host parameter in TestNG, or pass -Dhost=https://...");
-        }
+        DriverUtils.host = ParameterUtils.getParameter(hostParameter, "host", "");
     }
 
     /**

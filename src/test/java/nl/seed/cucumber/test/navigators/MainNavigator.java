@@ -22,16 +22,16 @@ public class MainNavigator implements Navigator, Routes {
     @Override
     public boolean goTo(AbstractPageObject page) {
         if(page instanceof GoogleSearch) {
-            DriverUtils.get(HOME);
+            DriverUtils.get("https://www.google.com");
             return true;
         }
         if(page instanceof GoogleImageSearch) {
-            DriverUtils.get(HOME);
+            DriverUtils.get("https://www.google.com");
             googleSearch.goToImageSearch();
             return true;
         }
         if(page instanceof BingSearch) {
-            DriverUtils.get(HOME);
+            DriverUtils.get("https://www.bing.com");
             return true;
         }
         return false;
