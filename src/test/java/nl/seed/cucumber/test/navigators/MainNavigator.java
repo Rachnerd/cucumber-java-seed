@@ -1,5 +1,6 @@
 package nl.seed.cucumber.test.navigators;
 
+import nl.seed.cucumber.test.page_objects.BingSearch;
 import nl.seed.cucumber.test.page_objects.GoogleImageSearch;
 import nl.seed.cucumber.test.page_objects.GoogleSearch;
 import nl.seed.cucumber.utils.driver.DriverUtils;
@@ -27,6 +28,10 @@ public class MainNavigator implements Navigator, Routes {
         if(page instanceof GoogleImageSearch) {
             DriverUtils.get(HOME);
             googleSearch.goToImageSearch();
+            return true;
+        }
+        if(page instanceof BingSearch) {
+            DriverUtils.get(HOME);
             return true;
         }
         return false;

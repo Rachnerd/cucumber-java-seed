@@ -40,6 +40,7 @@ public class GenericSteps implements En {
         });
 
         Then("^I take a screenshot: ([\\w-/]+)$", (String name)  -> {
+            log.info("I take a screenshot: " + name);
             try {
                 Thread.sleep(200);
                 log.debug("Paused for 200ms");

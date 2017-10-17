@@ -42,7 +42,7 @@ public class Hooks {
     @After
     public void takeScreenshot(Scenario scenario) {
         boolean hasFailed = scenario.getStatus().equals("failed");
-        String logMessage = "Screenshot created for failed scenario " + scenario.getName();
+        String logMessage = "Screenshot created for " + scenario.getStatus() + " scenario " + scenario.getName();
         String fileName = ThreadContext.get("threadId") + " " + Hooks.scenario.getName();
         if (hasFailed) {
             DriverUtils.takeScreenShot("errors/" + fileName);

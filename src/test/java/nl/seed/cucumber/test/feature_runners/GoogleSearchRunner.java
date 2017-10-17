@@ -27,7 +27,7 @@ public class GoogleSearchRunner {
 
     @Test(groups = {"all", "google"})
     public void runSearch() {
-        log.info("Start testing all scenario's of ExampleFeature");
+        log.info("Start testing all scenario's of G");
         TestNGCucumberRunner runner = new TestNGCucumberRunner(SearchOptions.class);
         runner.runCukes();
     }
@@ -45,7 +45,7 @@ public class GoogleSearchRunner {
 
     @Test(groups = {"all", "google", "google-images"})
     public void runImageSearch() {
-        log.info("Start testing all scenario's of ExampleFeature");
+        log.info("Start testing all scenario's of GoogleSearch.feature");
         TestNGCucumberRunner runner = new TestNGCucumberRunner(ImagesSearchOptions.class);
         runner.runCukes();
     }
@@ -63,7 +63,7 @@ public class GoogleSearchRunner {
 
     @Test(groups = {"happy-flows", "search-happy-flow"})
     public void runHappyFlow() {
-        log.info("Start testing happy-flow scenario's of ExampleFeature");
+        log.info("Start testing happy-flow scenario's of GoogleImageSearch.feature");
         TestNGCucumberRunner runner = new TestNGCucumberRunner(HappyFlowOptions.class);
         runner.runCukes();
     }

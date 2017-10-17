@@ -49,16 +49,10 @@ have something in common.
 ### Run Examples
 Change gradle for ./gradlew/./gradlew.bat if using the wrapper.
 ```bash
-# Headless mocked
+# Headless
 gradle test --rerun-tasks -Dhost=http://localhost:4200/#/
 
-# Chrome mocked only happy flow
-gradle test --rerun-tasks -DbrowserName=chrome -Dhost=http://localhost:4200/#/ -Dgroups=identify-customer-happy
-
-# Headless backend
-gradle test --rerun-tasks -Dhost=https://apps-tst.essent.nl/agent-cockpit/#/ -DuseTestData=true
-
-# Headless backend chrome budget-bill
-gradle test --rerun-tasks -DbrowserName=chrome -Dhost=https://apps-tst.essent.nl/agent-cockpit/#/ -DuseTestData=true -Dgroups=budget-bill
+# Chrome only happy flow
+gradle test --rerun-tasks -DbrowserName=chrome -Dhost=http://localhost:4200/#/ -Dgroups=happy-flows
 ```
 

@@ -22,7 +22,7 @@
     </Appenders>
     <Loggers>
         <!--Send all logs coming from-->
-        <Logger name="nl.seed.cucumber" level="ALL" additivity="false">
+        <Logger name="nl.essent.agentcockpit.utils.listeners" level="ALL" additivity="false">
             <AppenderRef ref="routing"/>
         </Logger>
         <Root level="debug" additivity="false">
